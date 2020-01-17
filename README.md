@@ -72,8 +72,6 @@ abs path to your script is /Users/jim/repo/runmjs/sample1.mjs
   long1: 'arg1', a: 'arg1',
   long3: 'default_long3'
   long4: 'arg4',
-  /* options like --long2, --long5 with no default will be omitted from
-   * the result if they weren't specified on the command line */
   long6: true, c: true,
   long7: false, d: false,
   long8: true,
@@ -82,6 +80,9 @@ abs path to your script is /Users/jim/repo/runmjs/sample1.mjs
 empty.txt 0
 README.md 1342
 ```
+
+Options like `--long2`, `--long5` with no default will be omitted from the
+result if they weren't specified on the command line.
 
 The option parsing is extracted from Deno's
 [std/flags](https://deno.land/std/flags/README.md), which in turn is based on
