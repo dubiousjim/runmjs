@@ -4,8 +4,8 @@
 /* if your kernel can't handle multiple shebang arguments:
  * 1. use env -S ... from GNU coreutils or FreeBSD
  * 2. or make the shebang line: #!/bin/sh
- *    and the second line:      'exec' //"$(type -P node)" --experimental-modules --experimental-wasm-modules "$0" "$@"
- *                     or:      'exec' //"$(type -P deno)" run --allow-read "$0" -- "$@"
+ *    and the second line:      'exec' //"$(type -P node)" --experimental-modules --experimental-wasm-modules "$0" "$@"; exit 1
+ *                     or:      'exec' //"$(type -P deno)" run --allow-read "$0" -- "$@"; exit 1
  */
 
 function _main(runnerpath, _scriptpath, args, exit, host) {
