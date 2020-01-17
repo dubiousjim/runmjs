@@ -74,6 +74,6 @@ empty.txt 0
 README.md 1342
 ```
 
-The option parsing is extracted from [https://deno.land/std/flags](https://deno.land/std/flags),
+The option parsing is extracted from Deno's [std/flags](https://deno.land/std/flags/README.md),
 which in turn is based on [minimist](https://github.com/substack/minimist).
 
