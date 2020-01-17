@@ -1,8 +1,14 @@
 ## RunMJS ##
 
-Install runmjs.mjs in your `$HOME/lib/`.
+Install `runmjs.mjs` in your `$HOME/lib/`. Adjust its shebang line to use your
+favored host (node or deno).
 
-Then you can write ES JavaScript modules that provide four exports like these:
+Then you can write ES JavaScript modules that work as shell scripts, which will
+work the same no matter which of those host was selected. (Assuming they only
+require access to the small api provided by runmjs.)
+
+These modules don't have to sort out the different ways to do things on node vs
+deno. They only need to provide four exports like these:
 
 ```
 export const opts = {
@@ -39,10 +45,13 @@ export function main(opts, files, api) {
 }
 ```
 
-(See file `sample.mjs` for an example.)
 
-Name your ES JavaScript module something like `foo.mjs`, add the following two lines to
-its top:
+
+
+(See file `sample1.mjs` for these examples.)
+
+Name your ES JavaScript module something like `foo.mjs`, add the following two
+lines to its top:
 
 ```
 #!/bin/sh
@@ -63,8 +72,8 @@ abs path to your script is /Users/jim/repo/runmjs/sample1.mjs
   long1: 'arg1', a: 'arg1',
   long3: 'default_long3'
   long4: 'arg4',
-  /* string options like --long2, --long5 with no default will be omitted from the result
-   * if they weren't specified on the command line */
+  /* options like --long2, --long5 with no default will be omitted from
+   * the result if they weren't specified on the command line */
   long6: true, c: true,
   long7: false, d: false,
   long8: true,
@@ -74,6 +83,7 @@ empty.txt 0
 README.md 1342
 ```
 
-The option parsing is extracted from Deno's [std/flags](https://deno.land/std/flags/README.md),
-which in turn is based on [minimist](https://github.com/substack/minimist).
+The option parsing is extracted from Deno's
+[std/flags](https://deno.land/std/flags/README.md), which in turn is based on
+[minimist](https://github.com/substack/minimist).
 
