@@ -1,5 +1,5 @@
 #!/bin/sh
-//$HOME/lib/runmjs.mjs "$0" "$@"; exit $?
+'exec' //$HOME/lib/runmjs.mjs "$0" "$@"; exit 1
 
 export const opts = {
   // options that always expect an argument
